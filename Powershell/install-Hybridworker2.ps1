@@ -1,21 +1,21 @@
 function install-Hybridworker2{
         param
         (
-            [string]$RG = "APTIFY70POC",
+            [string]$RG = "",
         
-            [string]$vm = "70AVD-6",
+            [string]$vm = ",
         
-            [string]$Automationaccountname = 'Aptify70auto',
+            [string]$Automationaccountname = '',
         
             [string]$vmid = (get-azvm -name $vm).id,
         
             [string]$location = "eastus",
         
-            [string]$HWG = "70HWG",
+            [string]$HWG = "",
         
             [string]$guid = [guid]::NewGuid().tostring(),
         
-            [string]$AutomationAccountURL = (Get-AzAutomationRegistrationInfo -ResourceGroupName $RG -AutomationAccountName Aptify70Auto).Endpoint,
+            [string]$AutomationAccountURL = (Get-AzAutomationRegistrationInfo -ResourceGroupName $RG -AutomationAccountName $AC).Endpoint,
           
             [string]$ScriptString = 'cd C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\*\bin\ -ErrorAction SilentlyContinue
             Import-Module .\HybridWorkerExtensionHandler.psm1
